@@ -52,10 +52,17 @@ def get_annual_max(d):
     Note: Don't strip or otherwise modify strings. Do not change datatypes except where necessary.
         You'll have to change vals to int to compare them. 
     '''
+    result = []  # List to store the resulting tuples
     
+    # Iterate through each year and its corresponding month dictionary
+    for year, months in d.items():
+        max_month = max(months, key=months.get)  # Find the month with the maximum value
+        max_value = int(months[max_month])  # Get the maximum value for that month
+        result.append((year, max_month, max_value))  # Append a tuple (year, month, max_value)
     
+    return result
     
-    pass
+
 
 def get_month_avg(d):
     '''
